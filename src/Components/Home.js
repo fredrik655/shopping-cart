@@ -16,7 +16,7 @@ const Home = () => {
       </h1>
     </div>
       
-      <Link to="/Shop">
+      <Link to={`${process.env.PUBLIC_URL}/Shop`}>
         <button id="shop-button"> GO TO SHOP</button>
       </Link>
     </div>

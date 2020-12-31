@@ -89,7 +89,7 @@ const Shop = (props) => {
               <img src={element.imgUrl} alt={element.name} />
               <p>Price: {element.price}</p>
               <Link to={{
-                pathname: `/Shop/${element.id}`,
+                pathname: `${process.env.PUBLIC_URL}/Shop/${element.id}`,
                 state: {price: element.price}
               }}>
                 <button >go to item page</button>

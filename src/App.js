@@ -14,7 +14,7 @@ const App = () => {
   const [checkoutItems, setCheckoutItems] = useState([]);
 
   useEffect(() => {
-    console.log(checkoutItems);
+    //console.log(checkoutItems);
   },[checkoutItems]);
 
   const updateCacheTimer = newDate => {
@@ -53,19 +53,19 @@ const App = () => {
     })
     return total;
   }
-
   return (
     <div className="app" >
+      
       <Router>
         <NavBar numberOfCheckoutItems={returnNumberOfItemsInCheckout()}/>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/Shop" exact>
+          <Route path={`${process.env.PUBLIC_URL}/`} exact component={Home} />
+          <Route path={`${process.env.PUBLIC_URL}/Shop`} exact>
             <Shop cacheTimer={cacheTimer} timerFunc={updateCacheTimer}/>
           </Route>
-          <Route path="/Shop/:id" render={props => <Items props={props} addItemToCheckout={addItemToCheckout} />}>
+          <Route path={`${process.env.PUBLIC_URL}/Shop/:id`} render={props => <Items props={props} addItemToCheckout={addItemToCheckout} />}>
           </Route>
-          <Route path="/Checkout" exact  render={props => <Checkout props={props} items={checkoutItems}/>}/>
+          <Route path={`${process.env.PUBLIC_URL}/Checkout`} exact  render={props => <Checkout props={props} items={checkoutItems}/>}/>
         </Switch>
       </Router>
     </div>
