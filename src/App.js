@@ -55,7 +55,6 @@ const App = () => {
   }
   return (
     <div className="app" >
-      
       <Router>
         <NavBar numberOfCheckoutItems={returnNumberOfItemsInCheckout()}/>
         <Switch>
@@ -66,6 +65,7 @@ const App = () => {
           <Route path={`${process.env.PUBLIC_URL}/Shop/:id`} render={props => <Items props={props} addItemToCheckout={addItemToCheckout} />}>
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/Checkout`} exact  render={props => <Checkout props={props} items={checkoutItems}/>}/>
+          <Route component={Home}/>
         </Switch>
       </Router>
     </div>
