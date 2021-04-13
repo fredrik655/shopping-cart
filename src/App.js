@@ -55,19 +55,17 @@ const App = () => {
   }
   return (
     <div className="app" >
-      <Router>
         <NavBar numberOfCheckoutItems={returnNumberOfItemsInCheckout()}/>
         <Switch>
           <Route path={`${process.env.PUBLIC_URL}/`} exact component={Home} />
           <Route path={`${process.env.PUBLIC_URL}/Shop`} exact>
             <Shop cacheTimer={cacheTimer} timerFunc={updateCacheTimer}/>
           </Route>
-          <Route path={`${process.env.PUBLIC_URL}/Shop/:id`} render={props => <Items props={props} addItemToCheckout={addItemToCheckout} />}>
+          <Route path={`${process.env.PUBLIC_URL}/Shop/:id`} exact render={props => <Items props={props} addItemToCheckout={addItemToCheckout} />}>
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/Checkout`} exact  render={props => <Checkout props={props} items={checkoutItems}/>}/>
           <Route component={Home}/>
         </Switch>
-      </Router>
     </div>
   );
 };
